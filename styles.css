@@ -1,0 +1,29 @@
+.left-side {
+  position: relative;
+}
+.background-image {
+  width: 673px;
+  height: 1024px;
+}
+body {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+.logo {
+  width: 206px;
+  height: 96px;
+  position: absolute;
+  top: 450px;
+  left: 220px;
+}
+
+.formulaire {
+  width: 300px;
+  height: 200px;
+  background: #e8dcc8;
+  border-radius: 25px;
+
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
