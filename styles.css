@@ -1,0 +1,566 @@
+/* CSS-пояснення: тут задається оформлення сторінки і позиціонування блоків */
+
+:root {
+  --bg-dark: #341a13;
+  --beige: #fff3e0;
+  --dark-brown: #37180f;
+  --accent-brown: #4b1f12;
+  --reserver-bg: #4f281a;
+  --button-brown: #6f412a;
+  --input-border: #896f6f;
+  --white: #ffffff;
+  --black: #000000;
+  --shadow-color: rgba(0, 0, 0, 1);
+}
+
+.page-formulaire {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Ліва панель з фото та логотипом.
+   position: relative встановлює контейнер як точку відліку для
+   абсолютного позиціонування логотипа всередині нього. */
+.left-side {
+  position: relative;
+}
+
+/* Фонове зображення лівої панелі */
+.background-image {
+  width: 680px;
+  height: 1024px;
+}
+
+.logo {
+  width: 206px;
+  height: 96px;
+  position: absolute;
+  top: 450px;
+  left: 210px;
+}
+
+/* Основні стилі сторінки: фон, відступи та загальний макет */
+body {
+  margin: 0;
+  padding-left: 150px;
+  padding-right: 150px;
+  background-color: var(--bg-dark);
+  scrollbar-color: var(--beige) var(--bg-dark);
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--beige);
+  border-radius: 999px;
+}
+
+/* Стиль бічної панелі форми з білим фоном і закругленими кутами.
+   position: absolute дозволяє розмістити форму точно на сторінці,
+   відштовхуючись від найближчого позиціонованого предка (тут це body). */
+.formulaire {
+  width: 830px;
+  height: 1024px;
+
+  background: var(--beige);
+
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+
+  position: absolute;
+  top: 0;
+  left: 800px;
+}
+
+h1 {
+  color: var(--dark-brown);
+  text-align: center;
+  word-spacing: 8px;
+  font-family: Unbounded;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+
+  padding-top: 55px;
+}
+
+p {
+  color: var(--black);
+  text-align: center;
+
+  font-family: "Radio Canada";
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+
+  padding-top: 15px;
+}
+
+/* Блок з полями введення користувача, розташований у дві колонки */
+.personal-info {
+  width: 100%;
+  max-width: 610px;
+
+  padding-left: 110px;
+  padding-top: 29px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  row-gap: 29px;
+  column-gap: 40px;
+
+  font-family: Inter;
+  font-size: 13px;
+}
+.part_two {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(250px, 360px);
+  column-gap: 40px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: start;
+}
+.participants-block {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 45px;
+  max-width: 250px;
+}
+.participants {
+  display: grid;
+  gap: 12px;
+}
+.who {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.who label {
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+}
+.personal-Allergies {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding-left: 110px;
+  padding-top: 20px;
+}
+.personal-Allergies input {
+  width: 100%;
+  max-width: 579px;
+}
+/* Для всіх прямих дочірніх <div> всередині .personal-info
+   застосовуємо флекс-верстку, щоб кожен блок поля вводу добре
+   вирівнювався по вертикалі та не розширювався за межі колонки. */
+.personal-info > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.personal-info label {
+  margin-bottom: 8px;
+}
+
+.personal-info input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+input {
+  width: 245px;
+  height: 37px;
+
+  margin-top: 10px;
+  padding-left: 15px;
+
+  border-radius: 13px;
+  border: 1px solid var(--input-border);
+
+  background: var(--white);
+
+  font-size: 12px;
+}
+
+/* Група вибору типу відвідування */
+
+.visit-group {
+  padding-left: 110px;
+  padding-top: 45px;
+}
+
+h2 {
+  margin-bottom: 25px;
+
+  color: var(--dark-brown);
+
+  font-family: Inter;
+  font-size: 16px;
+}
+
+.optional-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--dark-brown);
+}
+
+.visit-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+label {
+  font-family: Inter;
+  font-size: 13px;
+}
+
+/* Стилізація радіокнопок у групі вибору відвідування.
+   appearance: none прибирає стандартне оформлення браузера, щоб
+   зробити власний круглий вигляд. */
+.visit-option input[type="radio"] {
+  appearance: none;
+
+  width: 18px;
+  height: 18px;
+
+  margin: 0;
+
+  border: 1px solid var(--accent-brown);
+  border-radius: 50%;
+
+  cursor: pointer;
+  position: relative; /* Потрібно для позиціонування псевдоелемента ::before */
+}
+
+/* Псевдоелемент ::before додає всередину обраної радіокнопки маленьке
+   заповнене коло, яке показує, що варіант вибрано. */
+.visit-option input[type="radio"]:checked::before {
+  content: "";
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--accent-brown);
+  border-radius: 50%;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+/* Контейнер для чекбоксів з умовами та розсилкою */
+.checkbox {
+  display: flex;
+  max-width: 250px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-left: 100px;
+  padding-top: 50px;
+  font-family: Inter;
+  font-size: 13px;
+}
+
+.check {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+/* Стиль кнопки бронювання з округленими кутами та темним фоном */
+.reserver {
+  width: 260px;
+  height: 62px;
+
+  border: none;
+  border-radius: 19px;
+
+  background-color: var(--reserver-bg);
+
+  color: var(--white);
+
+  font-family: "Radio Canada";
+  font-size: 19px;
+  font-weight: 600;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  top: 901px;
+  left: 470px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Ця кнопка на сторінці réussite використовує той же стиль, але без абсолютного позиціювання. */
+.reussi-container .reserver {
+  position: static;
+  margin: 30px auto 0;
+}
+
+.Nomre_Participants {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.Nomre_Participants h2 {
+  margin: 0 0 12px 0;
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.who label {
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.number-chooser {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 0;
+}
+.number-chooser input[type="number"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  margin: 0px;
+}
+
+.number-chooser input[type="number"]::-webkit-inner-spin-button,
+.number-chooser input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+/* Кнопки мінус і плюс у number-chooser */
+.number-chooser button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--button-brown); /* коричневий колір */
+  color: var(--white);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-chooser button:hover {
+  background-color: var(--accent-brown); /* темніший коричневий при наведенні */
+}
+/* Анімація шоколадного дощу: позиціонування і рух елементів */
+.chocolate-rain img {
+  position: fixed;
+  top: -100px;
+  width: 50px;
+
+  opacity: 0.25;
+
+  animation: fall linear infinite;
+
+  pointer-events: none;
+}
+
+.chocolate-rain img:nth-child(1) {
+  left: 5%;
+  animation-duration: 8s;
+}
+.chocolate-rain img:nth-child(2) {
+  left: 15%;
+  animation-duration: 10s;
+}
+.chocolate-rain img:nth-child(3) {
+  left: 25%;
+  animation-duration: 7s;
+}
+.chocolate-rain img:nth-child(4) {
+  left: 35%;
+  animation-duration: 11s;
+}
+.chocolate-rain img:nth-child(5) {
+  left: 45%;
+  animation-duration: 9s;
+}
+.chocolate-rain img:nth-child(6) {
+  left: 55%;
+  animation-duration: 12s;
+}
+.chocolate-rain img:nth-child(7) {
+  left: 65%;
+  animation-duration: 8s;
+}
+.chocolate-rain img:nth-child(8) {
+  left: 75%;
+  animation-duration: 10s;
+}
+.chocolate-rain img:nth-child(9) {
+  left: 85%;
+  animation-duration: 7s;
+}
+.chocolate-rain img:nth-child(10) {
+  left: 95%;
+  animation-duration: 11s;
+}
+
+/* Адаптивна верстка: при меншому екрані прибираємо бокові відступи і
+   робимо форму основним вертикальним блоком */
+@media (max-width: 900px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .page-formulaire {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left-side,
+  .right-side {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .left-side {
+    display: none; /* Ховаємо бокову фотографію і залишаємо тільки форму */
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: center;
+  }
+
+  .background-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .formulaire {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    height: auto; /* Автоматично підлаштовуємо висоту за змістом */
+    min-height: 1024px; /* Зберігаємо мінімальний розмір, як на десктопі */
+    padding-bottom: 60px; /* Додаємо простір для кнопки та умов */
+  }
+
+  .personal-info {
+    width: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .checkbox {
+    padding-left: 30px;
+  }
+
+  .reserver {
+    left: 0;
+    top: auto;
+    margin: 50px;
+    position: relative;
+  }
+
+  .chocolate-rain {
+    display: none;
+  }
+}
+
+/* animation douce */
+@keyframes fall {
+  from {
+    transform: translateY(-100px) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(120vh) rotate(25deg);
+  }
+}
+
+/* Повноекранне повернене зображення для сторінки réussi */
+/* Цей стиль робить фон статичним і покриває весь екран. */
+.background-image_2 {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.5; /* Злегка затемнюємо фон для кращої читабельності тексту */
+}
+
+/* Контейнер і бежевий блок посередині для сторінки réussi */
+/* Центрує вміст поверх фонового зображення, не зникає при навантаженні. */
+.reussi-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.center-block {
+  background: var(--beige); /* бежевий тон */
+  padding: 40px 36px;
+  max-width: 800px;
+  width: 80%;
+  border-radius: 25px;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  text-align: center;
+}
+.center-block h1 {
+  color: var(--dark-brown);
+  font-family: Unbounded, sans-serif;
+  padding-top: 0%;
+}
+
+.center-block p {
+  color: var(--accent-brown);
+  font-family: Inter, sans-serif;
+}
+.visit-date {
+  padding-left: 110px;
+  padding-top: 10px;
+}
